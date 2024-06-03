@@ -1,0 +1,3 @@
+# ES6 Data Manipulation
+
+This projects aims to focus on some data structures like Arrays, Typed Arrays and Sets, and different methods like map, filter, etc...
