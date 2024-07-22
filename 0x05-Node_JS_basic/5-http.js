@@ -1,7 +1,6 @@
 const http = require('http');
 const fs = require('fs');
 const util = require('util');
-const { error } = require('console');
 
 // convert fs.readFile into a promise-based function
 const readFile = util.promisify(fs.readFile);
@@ -58,7 +57,7 @@ const app = http.createServer((req, res) => {
         res.write(text);
         res.end();
       })
-      .catch((err) => { res.end(err); });
+      .catch(() => { res.end(); });
   }
 });
 app.listen(1245);
