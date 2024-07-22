@@ -1,9 +1,13 @@
-const fs = require('fs/promises');
+const fs = require('fs');
+const util = require('util');
+
+// convert fs.readFile into a promise-based function
+const readFile = util.promisify(fs.readFile);
 
 module.exports = async function countStudents(path) {
   try {
     // read the file asynchronously
-    const data = await fs.readFile(path, { encoding: 'utf8' });
+    const data = await readFile(path, { encoding: 'utf8' });
 
     // split the data into lines, remove empty lines, and split each line into columns
     const lines = data.split('\n').filter((line) => line.length > 1).map((line) => line.split(','));
