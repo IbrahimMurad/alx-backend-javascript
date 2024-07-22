@@ -2,7 +2,7 @@ const fs = require('fs/promises');
 
 module.exports = async function countStudents(path) {
   try {
-    // read the file synchronously
+    // read the file asynchronously
     const data = await fs.readFile(path, { encoding: 'utf8' });
 
     // split the data into lines, remove empty lines, and split each line into columns
