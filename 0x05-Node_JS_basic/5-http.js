@@ -57,7 +57,7 @@ const app = http.createServer((req, res) => {
         res.write(text);
         res.end();
       })
-      .catch(() => { res.end(); });
+      .catch((err) => { res.end(err); });
   }
 });
 app.listen(1245);
