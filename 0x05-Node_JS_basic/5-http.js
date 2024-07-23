@@ -5,7 +5,7 @@ const util = require('util');
 // convert fs.readFile into a promise-based function
 const readFile = util.promisify(fs.readFile);
 
-async function countStudents(path) {
+async function countStudents(path, res) {
   try {
     // read the file asynchronously
     const data = await readFile(path, { encoding: 'utf8' });
@@ -40,9 +40,9 @@ async function countStudents(path) {
       const LIST_OF_FIRSTNAMES = list.map((student) => student.firstname);
       text += `Number of students in ${FIELD}: ${list.length}. List: ${LIST_OF_FIRSTNAMES.join(', ')}`;
     }
-    return text;
+    res.end(text);
   } catch (err) {
-    throw new Error('Cannot load the database');
+    res.end('Cannot load the database');
   }
 }
 
@@ -52,13 +52,9 @@ const app = http.createServer((req, res) => {
     res.end();
   } else if (req.url === '/students') {
     res.write('This is the list of our students\n');
-    countStudents(process.argv[2])
-      .then((text) => {
-        res.write(text);
-        res.end();
-      })
-      .catch((err) => { res.end(err); });
+    countStudents(process.argv[2], res);
   }
 });
+
 app.listen(1245);
 module.exports = app;
