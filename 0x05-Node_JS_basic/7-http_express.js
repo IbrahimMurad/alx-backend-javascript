@@ -40,7 +40,7 @@ async function countStudents(path, res) {
       const LIST_OF_FIRSTNAMES = list.map((student) => student.firstname);
       text += `Number of students in ${FIELD}: ${list.length}. List: ${LIST_OF_FIRSTNAMES.join(', ')}`;
     }
-    res.send(`This is the list of our students\n ${text}`);
+    res.send(`This is the list of our students\n${text}`);
   } catch (err) {
     res.send('This is the list of our students\nCannot load the database');
   }
