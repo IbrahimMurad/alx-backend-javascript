@@ -42,7 +42,7 @@ async function countStudents(path, res) {
     }
     res.send(`This is the list of our students\n ${text}`);
   } catch (err) {
-    res.status(500).send('Cannot load the database');
+    res.send('This is the list of our students\nCannot load the database');
   }
 }
 
