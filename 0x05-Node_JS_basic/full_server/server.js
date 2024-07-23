@@ -3,6 +3,6 @@ import router from './routes/index';
 
 const app = express();
 
-app.user('/', router);
+app.use('/', router);
 
 app.listen(1245);
