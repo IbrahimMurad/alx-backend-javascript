@@ -2,7 +2,7 @@ const assert = require("assert");
 const calculateNumber = require("./0-calcul");
 
 describe('calculateNumber', () => {
-  describe('SUM tests', () => {
+  describe('SUM', () => {
     it('adds two integers', () => {
       assert.equal(calculateNumber(1, 3, 'SUM'), 4);
     });
@@ -127,7 +127,7 @@ describe('calculateNumber', () => {
       assert.equal(calculateNumber(0, -1.5, 'SUM'), -1);
     });
   });
-  describe('SUBTRACT tests', () => {
+  describe('SUBTRACT', () => {
     it('subtracts two positive integers', () => {
       assert.equal(calculateNumber(3, 1, 'SUBTRACT'), 2);
     });
@@ -258,7 +258,7 @@ describe('calculateNumber', () => {
       assert.equal(calculateNumber(-1.5, 0, 'SUBTRACT'), -1);
     });
   });
-  describe('DIVIDE tests', () => {
+  describe('DIVIDE', () => {
     it('divides two positive  divisable integers', () => {
       assert.equal(calculateNumber(6, 3, 'DIVIDE'), 2);
     });
