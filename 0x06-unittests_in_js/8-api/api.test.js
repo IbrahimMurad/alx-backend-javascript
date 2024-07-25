@@ -33,4 +33,10 @@ describe('index page', () => {
       done();
     });
   });
+  it('the url', (done) => {
+    request.get('http://localhost:7865', (error, response, body) => {
+      expect(response.request.uri.href).to.equal('http://localhost:7865/');
+      done();
+    });
+  });
 });
